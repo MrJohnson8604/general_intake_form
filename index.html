@@ -1259,68 +1259,114 @@
               <h3>Send Us a Message</h3>
               <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mauris hendrerit faucibus imperdiet nec eget felis.</p>
 
-              <form name="lead-form" method="POST" data-netlify="true">
+        <form name="lead-form-v3" method="POST" data-netlify="true">
+
+  <input type="hidden" name="form-name" value="lead-form-v3" />
+
+  <div class="row">
+    <div class="col-md-6 form-group">
+      <label for="first-name">First Name</label>
+      <input type="text" id="first-name" name="first-name" class="form-control" required>
+    </div>
+    <div class="col-md-6 form-group">
+      <label for="last-name">Last Name</label>
+      <input type="text" id="last-name" name="last-name" class="form-control" required>
+    </div>
+  </div>
     
-    <input type="hidden" name="form-name" value="lead-form" />
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" class="form-control" required>
+  </div>
 
-    <div class="form-group">
-        <label for="first-name">First Name</label>
-        <input type="text" id="first-name" name="first-name" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" class="form-control" required>
-    </div>
-
-    <div class="form-group">
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" class="form-control" required>
-    </div>
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" class="form-control" required>
+  </div>
     
-    <div class="form-group">
-        <label>What are you most interested in? (Check all that apply)</label>
+  <hr>
+
+  <div class="form-group">
+    <label for="primary-goal">What is your main goal right now?</label>
+    <select id="primary-goal" name="primary-goal" class="form-control" required>
+      <option value="" disabled selected>Please choose one...</option>
+      <option value="buy-home">Purchase a Home</option>
+      <option value="rent-home">Rent a Home</option>
+      <option value="rent-to-own">Explore Rent-to-Own</option>
+      <option value="business-funding">Get Business Funding</option>
+      <option value="credit-repair">Improve My Credit</Soption>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="timeline">How soon are you looking to achieve this goal?</label>
+    <select id="timeline" name="timeline" class="form-control">
+      <option value="not-sure">I'm not sure</option>
+      <option value="asap">As soon as possible</option>
+      <option value="1-3-months">1-3 Months</option>
+      <option value="3-6-months">3-6 Months</option>
+      <option value="6-plus-months">6+ Months</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="credit-score">What is your estimated credit score?</label>
+    <select id="credit-score" name="credit-score" class="form-control">
+      <option value="not-sure">I'm not sure</option>
+      <option value="excellent-750+">Excellent (750+)</option>
+      <option value="good-700-749">Good (700-749)</option>
+      <option value="fair-650-699">Fair (650-699)</option>
+      <option value="needs-work-below-650">Needs Work (Below 650)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="annual-income">What is your total annual household income?</label>
+    <select id="annual-income" name="annual-income" class="form-control">
+      <option value="not-sure">I'm not sure / Prefer not to say</option>
+      <option value="under-50k">Under $50,000</option>
+      <option value="50k-100k">$50,000 - $100,000</option>
+      <option value="100k-150k">$100,000 - $150,000</option>
+      <option value="150k-plus">Over $150,000</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="liquid-reserves">How much do you have in liquid reserves (cash, savings)?</label>
+    <select id="liquid-reserves" name="liquid-reserves" class="form-control">
+      <option value="not-sure">I'm not sure / Prefer not to say</option>
+      <option value="under-5k">Under $5,000</option>
+      <option value="5k-15k">$5,000 - $15,000</option>
+      <option value="15k-30k">$15,000 - $30,00s</option>
+      <option value="30k-plus">Over $30,000</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Are you interested in any of the following? (Check all that apply)</label>
         
-        <div class="checkbox-group">
-            <input type="checkbox" id="interest-real-estate" name="interest[]" value="real-estate">
-            <label for="interest-real-estate">Real Estate</label>
-        </div>
-        
-        <div class="checkbox-group">
-            <input type="checkbox" id="interest-credit" name="interest[]" value="credit-repair">
-            <label for="interest-credit">Credit Repair</label>
-        </div>
-
-        <div class="checkbox-group">
-            <input type="checkbox" id="interest-funding" name="interest[]" value="business-funding">
-            <label for="interest-funding">Business Funding</label>
-        </div>
+    <div class="checkbox-group">
+      <input type="checkbox" id="interest-credit" name="other-interests[]" value="credit-repair">
+      <label for="interest-credit">Learning how to improve my credit</label>
     </div>
-
-    <div class="form-group">
-        <label for="credit-score">What is your estimated credit score?</label>
-        <select id="credit-score" name="credit-score" class="form-control">
-            <option value="not-sure">I'm not sure</option>
-            <option value="excellent-750+">Excellent (750+)</option>
-            <option value="good-700-749">Good (700-749)</option>
-            <option value="fair-650-699">Fair (650-699)</option>
-            <option value="needs-work-below-650">Needs Work (Below 650)</option>
-        </select>
+    <div class="checkbox-group">
+      <input type="checkbox" id="interest-funding" name="other-interests[]" value="business-funding">
+      <label for="interest-funding">Business funding or startup capital</label>
     </div>
-
-    <div class="form-group">
-        <label for="goals">Tell us a little about your goals (Optional)</label>
-        <textarea id="goals" name="goals" rows="4" class="form-control"></textarea>
+    <div class="checkbox-group">
+      <input type="checkbox" id="interest-real-estate" name="other-interests[]" value="real-estate-investing">
+      <label for="interest-real-estate">Real estate investing</label>
     </div>
+  </div>
 
-    <div class="form-group checkbox-group">
-        <input type="checkbox" id="consent" name="consent" value="agreed" required>
-        <label for="consent">I agree to be contacted via phone or email.</label>
-    </div>
+  <div class="form-group checkbox-group">
+    <input type="checkbox" id="consent" name="consent" value="agreed" required>
+    <label for="consent">I agree to be contacted via phone, text, or email.</label>
+  </div>
 
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Get My Free Consultation</button>
-    </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Get My Free Consultation</button>
+  </div>
 </form>
             </div>
           </div>
