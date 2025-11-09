@@ -156,8 +156,21 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 40px;
   margin-right: 8px;
+  width: auto;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.header .logo img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .header .logo img {
+    max-height: 35px;
+  }
 }
 
 .header .logo h1 {
