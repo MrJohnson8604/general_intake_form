@@ -463,6 +463,72 @@ h6 {
   }
 }
 
+/* Custom: Fortiz - Navigation polish (tighter spacing, pill links, mobile tweaks) */
+@media (min-width: 1200px) {
+  /* add a small gap between desktop links for a cleaner, modern look */
+  .navmenu ul {
+    gap: 8px;
+  }
+
+  /* tighter, pill-like link styling for a polished header */
+  .navmenu a {
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: background-color 0.18s, color 0.18s, transform 0.12s;
+  }
+
+  .navmenu a:hover,
+  .navmenu a:focus {
+    background-color: color-mix(in srgb, var(--default-color), transparent 92%);
+    color: var(--nav-hover-color);
+    transform: translateY(-1px);
+  }
+
+  .navmenu li {
+    margin: 0;
+  }
+
+  /* slightly reduce header vertical padding for a tighter, more professional look */
+  .header {
+    padding: 10px 0;
+  }
+
+  /* keep logo proportional to the tightened header */
+  .header .logo img {
+    max-height: 56px;
+    width: auto;
+  }
+}
+
+@media (max-width: 1199px) {
+  /* mobile menu inset & spacing tweaks for readability */
+  .navmenu ul {
+    inset: 58px 16px 16px 16px;
+    padding: 8px 0;
+    border-radius: 8px;
+  }
+
+  .navmenu a {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 4px 8px;
+  }
+
+  .navmenu ul li {
+    text-align: left;
+  }
+
+  .mobile-nav-toggle {
+    font-size: 30px;
+    margin-right: 6px;
+  }
+
+  .mobile-nav-active .mobile-nav-toggle {
+    top: 12px;
+    right: 12px;
+  }
+}
+
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
