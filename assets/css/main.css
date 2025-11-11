@@ -2502,6 +2502,13 @@ section,
   opacity: 0.8;
 }
 
+.contact .info-card .card-content p a {
+  color: var(--contrast-color);
+  text-decoration: underline;
+  font-weight: 600;
+  opacity: 0.95;
+}
+
 .contact .social-links-panel {
   margin-top: 35px;
 }
