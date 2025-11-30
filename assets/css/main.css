@@ -2557,6 +2557,16 @@ section,
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
 }
 
+@media (min-width: 992px) {
+  /* Desktop-only enhancement: enlarge map to occupy available space */
+  .contact .map-container {
+    height: 520px; /* Increased from 280px for better visual balance */
+  }
+  .contact .map-container iframe {
+    height: 100% !important; /* Ensure iframe fills new container height */
+  }
+}
+
 .contact .form-container {
   background-color: var(--surface-color);
   border-radius: 20px;
