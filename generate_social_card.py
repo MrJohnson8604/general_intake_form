@@ -8,7 +8,7 @@ import os
 
 # Configuration
 OUTPUT_PATH = "assets/img/fortiz-social-card.png"
-LOGO_PATH = "assets/img/fortiz-group-logo.png"
+LOGO_PATH = "assets/img/Fortiz-Group-Logo.png"
 WIDTH = 1200
 HEIGHT = 630
 
