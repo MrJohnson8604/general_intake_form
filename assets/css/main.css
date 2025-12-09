@@ -156,7 +156,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 80px;
+  max-height: 120px;
   margin-right: 8px;
   width: auto;
   height: auto;
@@ -169,7 +169,7 @@ h6 {
 
 @media (max-width: 768px) {
   .header .logo img {
-    max-height: 48px;
+    max-height: 72px;
   }
 }
 
