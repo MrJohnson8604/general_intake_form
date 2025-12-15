@@ -2680,6 +2680,11 @@ section,
   }
 }
 
+/* Prevent form from causing auto-scroll on page load */
+#form-top {
+  scroll-margin-top: 100px;
+}
+
 .contact .form-container {
   background-color: var(--surface-color);
   border-radius: 20px;

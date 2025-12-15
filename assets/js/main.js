@@ -178,21 +178,72 @@
   });
 
   /**
-   * Correct scrolling position upon page load for URLs containing hash links.
+   * Prevent auto-scroll to hash on page load/refresh
+   * Always start at top of page, only scroll to hash when link is explicitly clicked
    */
-  window.addEventListener('load', function(e) {
-    if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
-        setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
-          window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
-            behavior: 'smooth'
-          });
-        }, 100);
-      }
+  
+  // Track if we've already handled the initial scroll
+  let initialScrollHandled = false;
+
+  // Always scroll to top on page load (before any other scripts run)
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
+  }
+
+  // Scroll to top immediately
+  scrollToTop();
+
+  // Scroll to top on DOM ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', scrollToTop);
+  }
+
+  // Scroll to top on window load (after all resources loaded)
+  window.addEventListener('load', function() {
+    scrollToTop();
+    
+    // Additional scroll to top after a short delay to prevent form embed from causing scroll
+    setTimeout(scrollToTop, 50);
+    setTimeout(scrollToTop, 200);
+    setTimeout(scrollToTop, 500);
+  });
+
+  // Prevent browser's default hash scroll behavior
+  window.addEventListener('hashchange', function() {
+    // Only allow hash change scroll if it was from a click (handled below)
+    // Otherwise, scroll to top
+    if (!initialScrollHandled) {
+      scrollToTop();
     }
+  }, false);
+
+  // Handle hash navigation when clicking links (explicit user action)
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      let hash = this.getAttribute('href');
+      if (hash && hash !== '#' && hash !== '#top') {
+        let target = document.querySelector(hash);
+        if (target) {
+          e.preventDefault();
+          initialScrollHandled = true;
+          
+          setTimeout(() => {
+            let scrollMarginTop = getComputedStyle(target).scrollMarginTop || '0';
+            let headerOffset = document.querySelector('#header') ? document.querySelector('#header').offsetHeight : 0;
+            window.scrollTo({
+              top: target.offsetTop - parseInt(scrollMarginTop) - headerOffset,
+              behavior: 'smooth'
+            });
+            // Update URL
+            history.pushState(null, null, hash);
+            initialScrollHandled = false;
+          }, 10);
+        }
+      }
+    });
   });
 
   /**
