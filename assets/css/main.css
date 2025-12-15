@@ -156,9 +156,23 @@ h6 {
   padding-right: 15px;
 }
 
+@media (min-width: 1200px) {
+  .header .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
 .header-wrapper {
   gap: 20px;
   min-height: 60px;
+}
+
+@media (min-width: 1200px) {
+  .header-wrapper {
+    gap: 40px;
+    padding: 20px 0;
+  }
 }
 
 .header .logo {
@@ -166,6 +180,12 @@ h6 {
   flex-shrink: 0;
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 1200px) {
+  .header .logo {
+    padding-right: 20px;
+  }
 }
 
 .header .logo img {
@@ -237,16 +257,20 @@ h6 {
 
   .header .logo {
     flex: 0 0 auto;
+    margin-right: auto;
   }
 
   .header .navmenu {
-    flex: 1 1 auto;
+    flex: 0 0 auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    padding-left: 30px;
   }
 
   .header .header-social-links {
     flex: 0 0 auto;
+    margin-left: 30px;
   }
 }
 
@@ -311,7 +335,7 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
-    padding: 18px 15px;
+    padding: 18px 20px;
     font-size: 16px;
     font-family: var(--nav-font);
     font-weight: 400;
