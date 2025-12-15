@@ -151,25 +151,44 @@ h6 {
   z-index: 10000; /* Ensure header sits above all content for mobile toggle */
 }
 
+.header .container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header-wrapper {
+  gap: 20px;
+  min-height: 60px;
+}
+
 .header .logo {
   line-height: 1;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
 }
 
 .header .logo img {
-  max-height: 200px;
-  margin-right: 8px;
+  max-height: 180px;
   width: auto;
   height: auto;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .header .logo img:hover {
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .header .logo img {
-    max-height: 130px;
+    max-height: 140px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header .logo img {
+    max-height: 100px;
   }
 }
 
@@ -181,36 +200,76 @@ h6 {
 }
 
 .header .header-social-links {
-  padding-right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .header .header-social-links a {
   color: color-mix(in srgb, var(--default-color), transparent 40%);
-  padding-left: 6px;
-  display: inline-block;
-  transition: 0.3s;
-  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 18px;
 }
 
 .header .header-social-links a:hover {
   color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
+  transform: translateY(-2px);
 }
 
 .header .header-social-links a i {
-  line-height: 0px;
+  line-height: 1;
 }
 
-@media (max-width: 1200px) {
-  .header .logo {
-    order: 1;
+/* Desktop Layout */
+@media (min-width: 1200px) {
+  .header-wrapper {
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .header .header-social-links {
-    order: 2;
+  .header .logo {
+    flex: 0 0 auto;
   }
 
   .header .navmenu {
-    order: 3;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .header .header-social-links {
+    flex: 0 0 auto;
+  }
+}
+
+/* Tablet and Mobile Layout */
+@media (max-width: 1199px) {
+  .header-wrapper {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .header .logo {
+    flex: 0 0 auto;
+    max-width: 50%;
+  }
+
+  .header .navmenu {
+    flex: 0 0 auto;
+    margin-left: auto;
+  }
+
+  .header .header-social-links {
+    display: none;
   }
 }
 
@@ -233,6 +292,8 @@ h6 {
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+    display: flex;
+    align-items: center;
   }
 
   .navmenu ul {
@@ -469,14 +530,16 @@ h6 {
 @media (min-width: 1200px) {
   /* add a small gap between desktop links for a cleaner, modern look */
   .navmenu ul {
-    gap: 8px;
+    gap: 6px;
+    align-items: center;
   }
 
   /* tighter, pill-like link styling for a polished header */
   .navmenu a {
-    padding: 10px 14px;
+    padding: 10px 16px;
     border-radius: 8px;
     transition: background-color 0.18s, color 0.18s, transform 0.12s;
+    white-space: nowrap;
   }
 
   .navmenu a:hover,
@@ -484,6 +547,22 @@ h6 {
     background-color: color-mix(in srgb, var(--default-color), transparent 92%);
     color: var(--nav-hover-color);
     transform: translateY(-1px);
+  }
+
+  /* Special styling for Free Consultation link */
+  .navmenu a.consultation-link {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    font-weight: 500;
+    padding: 10px 20px;
+  }
+
+  .navmenu a.consultation-link:hover,
+  .navmenu a.consultation-link:focus {
+    background-color: color-mix(in srgb, var(--accent-color), black 10%);
+    color: var(--contrast-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 50%);
   }
 
   .navmenu li {
@@ -497,7 +576,7 @@ h6 {
 
   /* keep logo proportional to the tightened header */
   .header .logo img {
-    max-height: 200px;
+    max-height: 180px;
     width: auto;
   }
 }
@@ -506,14 +585,29 @@ h6 {
   /* mobile menu inset & spacing tweaks for readability */
   .navmenu ul {
     inset: 58px 16px 16px 16px;
-    padding: 8px 0;
+    padding: 12px 0;
     border-radius: 8px;
   }
 
   .navmenu a {
-    padding: 12px 16px;
+    padding: 14px 20px;
     border-radius: 6px;
-    margin: 4px 8px;
+    margin: 2px 12px;
+    font-size: 16px;
+  }
+
+  /* Special styling for Free Consultation link on mobile */
+  .navmenu a.consultation-link {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    font-weight: 600;
+    margin: 8px 12px;
+  }
+
+  .navmenu a.consultation-link:hover,
+  .navmenu a.consultation-link:focus {
+    background-color: color-mix(in srgb, var(--accent-color), black 10%);
+    color: var(--contrast-color);
   }
 
   .navmenu ul li {
@@ -521,13 +615,30 @@ h6 {
   }
 
   .mobile-nav-toggle {
-    font-size: 30px;
-    margin-right: 6px;
+    font-size: 28px;
+    margin-right: 0;
+    color: var(--default-color);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s;
+  }
+
+  .mobile-nav-toggle:hover {
+    color: var(--accent-color);
   }
 
   .mobile-nav-active .mobile-nav-toggle {
     top: 12px;
     right: 12px;
+    color: #fff;
+  }
+
+  /* Ensure header wrapper doesn't wrap on mobile */
+  .header-wrapper {
+    flex-wrap: nowrap;
   }
 }
 
