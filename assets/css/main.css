@@ -334,9 +334,16 @@ h6 {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
+  .navmenu li:hover>a:not(.consultation-link),
+  .navmenu .active:not(.consultation-link),
+  .navmenu .active:not(.consultation-link):focus {
+    color: var(--accent-color);
+  }
+
+  /* Consultation link active state - normal color */
+  .navmenu li:hover>a.consultation-link,
+  .navmenu .active.consultation-link,
+  .navmenu .active.consultation-link:focus {
     color: var(--nav-hover-color);
   }
 
@@ -465,9 +472,17 @@ h6 {
     color: var(--contrast-color);
   }
 
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
+  /* Green highlight on hover for navigation page titles on mobile */
+  .navmenu a:not(.consultation-link):hover,
+  .navmenu .active:not(.consultation-link),
+  .navmenu .active:not(.consultation-link):focus {
+    color: var(--accent-color);
+  }
+
+  /* Consultation link hover on mobile - normal color */
+  .navmenu a.consultation-link:hover,
+  .navmenu .active.consultation-link,
+  .navmenu .active.consultation-link:focus {
     color: var(--nav-dropdown-hover-color);
   }
 
@@ -542,28 +557,22 @@ h6 {
     white-space: nowrap;
   }
 
-  .navmenu a:hover,
-  .navmenu a:focus {
+  /* Green highlight on hover for navigation page titles (not consultation link) */
+  .navmenu a:not(.consultation-link):hover,
+  .navmenu a:not(.consultation-link):focus {
+    background-color: color-mix(in srgb, var(--default-color), transparent 92%);
+    color: var(--accent-color);
+    transform: translateY(-1px);
+  }
+
+  /* Consultation link hover - normal style without green */
+  .navmenu a.consultation-link:hover,
+  .navmenu a.consultation-link:focus {
     background-color: color-mix(in srgb, var(--default-color), transparent 92%);
     color: var(--nav-hover-color);
     transform: translateY(-1px);
   }
 
-  /* Special styling for Free Consultation link */
-  .navmenu a.consultation-link {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    font-weight: 500;
-    padding: 10px 20px;
-  }
-
-  .navmenu a.consultation-link:hover,
-  .navmenu a.consultation-link:focus {
-    background-color: color-mix(in srgb, var(--accent-color), black 10%);
-    color: var(--contrast-color);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px color-mix(in srgb, var(--accent-color), transparent 50%);
-  }
 
   .navmenu li {
     margin: 0;
@@ -596,19 +605,6 @@ h6 {
     font-size: 16px;
   }
 
-  /* Special styling for Free Consultation link on mobile */
-  .navmenu a.consultation-link {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    font-weight: 600;
-    margin: 8px 12px;
-  }
-
-  .navmenu a.consultation-link:hover,
-  .navmenu a.consultation-link:focus {
-    background-color: color-mix(in srgb, var(--accent-color), black 10%);
-    color: var(--contrast-color);
-  }
 
   .navmenu ul li {
     text-align: left;
@@ -941,9 +937,10 @@ section,
   font-size: 4rem;
   font-weight: 800;
   margin-bottom: 2rem;
-  line-height: 1.1;
+  line-height: 1.2;
   color: var(--heading-color);
   letter-spacing: -0.02em;
+  word-spacing: 0.05em;
 }
 
 @media (max-width: 992px) {
@@ -991,6 +988,8 @@ section,
   .hero .hero-content .hero-btns {
     flex-direction: column;
     gap: 1rem;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -1008,6 +1007,7 @@ section,
   .hero .hero-content .hero-btns .btn {
     width: 100%;
     max-width: 280px;
+    margin: 0 auto;
   }
 }
 
