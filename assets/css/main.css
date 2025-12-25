@@ -167,14 +167,14 @@ h6 {
 
 .header-wrapper {
   gap: 20px;
-  min-height: 60px;
+  min-height: 80px;
   overflow: visible; /* Ensure toggle button is not clipped */
 }
 
 @media (min-width: 1200px) {
   .header-wrapper {
     gap: 40px;
-    padding: 20px 0;
+    padding: 25px 0;
   }
 }
 
@@ -192,7 +192,7 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 80px;
+  max-height: 130px;
   width: auto; /* Maintains aspect ratio - scales proportionally */
   height: auto; /* Maintains aspect ratio - scales proportionally */
   transition: transform 0.3s ease;
@@ -205,22 +205,22 @@ h6 {
 
 @media (max-width: 991px) {
   .header .logo img {
-    max-height: 70px !important;
-    height: 70px !important;
+    max-height: 100px !important;
+    height: auto !important;
   }
 }
 
 @media (max-width: 768px) {
   .header .logo img {
-    max-height: 90px !important;
-    height: 90px !important;
+    max-height: 95px !important;
+    height: auto !important;
   }
 }
 
 @media (max-width: 576px) {
   .header .logo img {
-    max-height: 80px !important;
-    height: 80px !important;
+    max-height: 90px !important;
+    height: auto !important;
   }
 }
 
@@ -322,7 +322,7 @@ h6 {
 
   .header-wrapper {
     gap: 15px;
-    min-height: 50px;
+    min-height: 70px;
     padding: 0;
     position: relative; /* Ensure wrapper positioning context */
     overflow: visible; /* Ensure toggle button is not clipped */
@@ -764,14 +764,14 @@ h6 {
     margin: 0;
   }
 
-  /* slightly reduce header vertical padding for a tighter, more professional look */
+  /* header vertical padding adjusted for larger logo while maintaining professional spacing */
   .header {
-    padding: 18px 0;
+    padding: 22px 0;
   }
 
   /* keep logo proportional to the tightened header */
   .header .logo img {
-    max-height: 180px;
+    max-height: 150px;
     width: auto;
   }
 }
