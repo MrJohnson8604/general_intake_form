@@ -192,9 +192,9 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 130px;
-  width: auto; /* Maintains aspect ratio - scales proportionally */
-  height: auto; /* Maintains aspect ratio - scales proportionally */
+  max-height: 180px !important;
+  height: 180px !important;
+  width: auto !important; /* Maintains aspect ratio - scales proportionally */
   transition: transform 0.3s ease;
   display: block;
 }
@@ -205,22 +205,25 @@ h6 {
 
 @media (max-width: 991px) {
   .header .logo img {
-    max-height: 100px !important;
-    height: auto !important;
+    max-height: 140px !important;
+    height: 140px !important;
+    width: auto !important;
   }
 }
 
 @media (max-width: 768px) {
   .header .logo img {
-    max-height: 95px !important;
-    height: auto !important;
+    max-height: 130px !important;
+    height: 130px !important;
+    width: auto !important;
   }
 }
 
 @media (max-width: 576px) {
   .header .logo img {
-    max-height: 90px !important;
-    height: auto !important;
+    max-height: 120px !important;
+    height: 120px !important;
+    width: auto !important;
   }
 }
 
@@ -771,8 +774,9 @@ h6 {
 
   /* keep logo proportional to the tightened header */
   .header .logo img {
-    max-height: 150px;
-    width: auto;
+    max-height: 200px !important;
+    height: 200px !important;
+    width: auto !important;
   }
 }
 
